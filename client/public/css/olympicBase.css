@@ -1,0 +1,249 @@
+:root {
+    --fontNormal: Arial,
+        Helvetica,
+        sans-serif;
+    --fontTitle: 'Gill Sans',
+        'Gill Sans MT',
+        Calibri,
+        'Trebuchet MS',
+        sans-serif;
+
+    --colorBody: black;
+    --colorBG: rgb(85, 7, 7);
+    --colorText: #fff;
+    --colorHigh1: rgb(255, 33, 70);
+    --colorHigh2: aqua;
+
+    --headerH: 1em;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    position: relative;
+    height: auto;
+    direction: rtl;
+    font-family: var(--fontNormal);
+    color: var(--colorText);
+    background-color: var(--colorBody);
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(200, 239, 255, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--colorBG);
+    background: color-mix(in srgb, var(--colorHigh1) 100%, #000 20%);
+    opacity: 0.5;
+    border-radius: 999vmax;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--colorHigh1);
+    background: var(--colorHigh1);
+    opacity: 1;
+}
+
+::-webkit-scrollbar {
+    width: min(14px, 2.5vmin);
+}
+
+:where(h1, h2, h3, h4, h5, h6, nav a, hr) {
+    font-family: var(--fontTitle);
+    font-weight: 700;
+    margin: 0rem auto;
+    text-wrap: nowrap;
+    line-height: 100%;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+h2 {
+    font-size: 2.5em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+a:where(:link, :visited, :active) {
+    color: var(--colorHigh2);
+    text-decoration: none;
+    outline: none;
+}
+
+
+.block {
+    display: block;
+    width: 100%;
+}
+
+.flex {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+.noGap {
+    gap: 0;
+}
+
+.row {
+    flex-direction: column;
+}
+
+.warp {
+    flex-wrap: wrap;
+}
+
+[flex] {
+    flex: 1;
+}
+
+.padd,
+.card {
+    padding: 1em;
+}
+
+.marg {
+    margin: 1em;
+}
+
+.center {
+    text-align: center;
+}
+
+.border-r,
+.card {
+    border-radius: 0.5em;
+}
+
+.shadow,
+.card {
+    box-shadow: 0 0.5em 2em -0.3em #000;
+}
+
+button,
+input,
+option,
+textarea {
+    box-sizing: content-box;
+    vertical-align: middle;
+    font-size: 1em;
+}
+
+button {
+    --btnColor: #fff;
+    text-wrap: nowrap;
+}
+
+button.red {
+    --btnColor: rgb(180, 11, 11);
+}
+
+button.green {
+    --btnColor: rgb(0, 182, 0);
+}
+
+button.blue {
+    --btnColor: rgb(8, 118, 207);
+}
+
+button.orange {
+    --btnColor: rgb(230, 88, 12)
+}
+
+button.trans {
+    --btnColor: transparent;
+    border: solid 0.1em
+}
+
+button:disabled {
+    filter: brightness(0.8) saturate(0.8);
+}
+
+
+.mobile {
+    display: none;
+}
+
+.notMobile {
+    display: initial;
+}
+
+@media only screen and (max-width: 600px) {
+    .mobile {
+        display: block;
+    }
+
+    .notMobile {
+        display: none;
+    }
+
+    main .flex:not(.keep) {
+        flex-direction: column;
+        width: -webkit-fill-available;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
+    form.flex,
+    form .flex {
+        gap: 1em;
+    }
+
+    form.flex button {
+        font-size: 2em;
+        width: -webkit-fill-available;
+    }
+}
+
+form.flex .flex {
+    padding: 0;
+}
+
+.noAds .google-auto-placed,
+.noAds .google-auto-placed ins,
+.noAds .adsbygoogle,
+.noAds ins,
+.noAds * ins,
+.noAds ins iframe,
+ins.adsbygoogle[data-ad-status="unfilled"] {
+    display: none !important;
+}
+
+p {
+    margin: 0;
+}
+
+.bg1 {
+    background-color: var(--colorBG);
+}
+
+.bg2 {
+    background-color: var(--colorBG2);
+}
+
+.highlight {
+    color: var(--colorHigh2);
+}
+
+[type=checkbox],
+[type=radio] {
+    transform: scale(1.3);
+}

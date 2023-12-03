@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>המסעדה הטובה</title>
+    <link rel="stylesheet" href="/css/olympicBase.css">
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body class="flex row">
+    <header class="block">
+        <nav class="flex block card">
+            <div flex>
+                <span style="font-weight: 900;" onclick="location.reload()">המסעדה הטובה</span>
+            </div>
+            <div class="flex adminView">
+                <span onclick="alert('פה יהיה תצוגה וניהול של כל הלקוחות/משתמשים')">לקוחות</span>|
+                <span onclick="alert('פה יהיה תצוגה וניהול של כל העובדים')">עובדים</span>|
+                <span onclick="alert('פה יהיה תצוגה וניהול של כל האירועים')">אירועים</span>
+            </div>
+            <button onclick="loginBtn()" id="login_out">התחברות</button>
+        </nav>
+    </header>
+    <main class="flex row" flex>
+
+        <section class="block">
+            <h1>התפריט:</h1>
+            <div class="flex" style="align-items: flex-start;">
+                <div class="adminView card" style="margin:0.5em">
+                    <h3 style="margin-bottom:0.5em">הוספת מנה:</h3>
+                    <form class="flex row padd"
+                        onsubmit="event.preventDefault(); addDish(dishUrl.value,dishName.value)">
+                        <input type="url" id="dishUrl" placeholder="כתובת תמונה למנה" required>
+                        <input type="text" id="dishName" placeholder="שם המנה" required>
+                        <button>הוסף מנה</button>
+                    </form>
+                </div>
+                <div class="flex warp padd" id="dishList">
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer class="padd">
+        פרוייקט מסעדה ו API | אלמוג
+    </footer>
+
+    <dialog id="loginDialog">
+        <p>התחברות:</p>
+        <form method="dialog" class="flex row">
+            <input type="email" id="email" placeholder="אימייל" required>
+            <input type="password" id="password" placeholder="סיסמה" required>
+            <div class="flex block">
+                <button flex onclick="login()">התחבר</button>
+                <button flex class="orange" onclick="loginDialog.close();registerDialog.showModal()">הרשם</button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog id="registerDialog">
+        <p>הרשמה:</p>
+        <form method="dialog" class="flex row">
+            <input type="text" id="regi_name" placeholder="שם" required>
+            <input type="email" id="regi_email" placeholder="אימייל" required>
+            <input type="password" id="regi_password" placeholder="סיסמה" required>
+            <input type="password" id="regi_re_password" placeholder="אימות סיסמה" required>
+            <div class="flex block">
+                <button flex class="green"
+                    onclick="register(regi_name.value,regi_email.value,regi_password.value,regi_re_password.value)">הרשם</button>
+                <button flex class="red" onclick="registerDialog.close()">סגור</button>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog id="dishDialog">
+        <p>עריכת מנה:</p>
+        <form method="dialog" class="flex row">
+            <input type="hidden" id="edit_dishID">
+            <input type="url" id="edit_image" placeholder="כתובת תמונה למנה" required>
+            <input type="text" id="edit_name" placeholder="שם המנה" required>
+            <div class="flex block">
+                <button flex class="green"
+                    onclick="editDish(edit_image.value,edit_name.value,edit_dishID.value)">שמור</button>
+                <button flex class="red" onclick="dishDialog.close()">ביטול</button>
+            </div>
+        </form>
+    </dialog>
+
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
